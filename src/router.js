@@ -1,5 +1,5 @@
 import VueRouter from 'vue-router'
-import Main from './components/Main'
+import Welcome from './components/Welcome'
 import Home from './components/Home'
 import TodoList from './components/TodoList'
 import Mine from './components/Mine'
@@ -7,7 +7,7 @@ import Vue from "vue";
 
 Vue.use(VueRouter)
 const routes = [
-    { path: '/', component: Main },
+    { path: '/', component: Welcome },
     {
         path: '/home',
         component: Home,
