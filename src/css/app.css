@@ -19,17 +19,6 @@ input[type=text] {
     width: 75%;
 }
 
-#addBtn {
-    height: 31px;
-    display: inline-block;
-    width: 18%;
-    background-color: #cc5233;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    padding: 5px 13px;
-    margin-left: 4px;
-}
 
 ol {
     padding-left: 15px;
