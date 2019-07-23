@@ -8,7 +8,7 @@
 </template>
 <script>
 export default {
-  name: "Main",
+  name: "Welcome",
   methods: {
     login() {
       this.$store.commit("addUserName", this.userName);
