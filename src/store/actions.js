@@ -1,17 +1,43 @@
 import axios from 'axios'
-
-const baseUrl = '';
-export const actions = {
-    getList({ commit }) {
-        axios.get(baseUrl).then(response => commit('reloadItems', response.data));
-    },
-    addItem(context, data) {
-        axios.post(baseUrl, data).then(() => this.dispatch('getList'));
-    },
-    updateItem(context, data) {
-        axios.put(`${baseUrl}/${data.id}`, data).then(() => this.dispatch('getList'));
-    },
-    deleteItem(context, data) {
-        axios.delete(`${baseUrl}/${data.id}`, data).then(() => this.dispatch('getList'));
-    },
+export default {
+  addTodoToBack({commit,state}, items){
+    axios.post(`http://localhost:8001/todoList`,items)
+      .then(function(response) {
+        state.items.push(items);
+        state.listItems = state.items;
+        console.log(response.data);
+      })
+      .catch(function(error) {
+        alert("please input repeat number.");
+     });
+  },
+  findTodoListWithBack({commit,state}){
+    axios.get(`http://localhost:8001/todoList`)
+      .then(function(response) {
+        console.log(response.data);
+        state.items = response.data;
+        state.listItems = response.data;
+      })
+      .catch(function(error) {
+        console.log(error);
+     });
+  },
+  updateTodoWithBack({commit,state},item){
+    axios.put(`http://localhost:8001/todoList?key=${item.key}&value=${item.value}`)
+      .then(function(response) {
+        console.log(response.data);
+      })
+      .catch(function(error) {
+        console.log(error);
+     });
+  },
+  deleteTodoWithBack({commit,state},index){
+    axios.delete(`http://localhost:8001/todoList/${index}`)
+      .then(function(response) {
+        console.log(response.data);
+      })
+      .catch(function(error) {
+        console.log(error);
+     });
+  },
 }
