@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      姓名：{{getLoginUser}}
+      姓名：Skye
       <ol>
         <li>
           <a href="/" onclick="return confirm('确认返回吗')">返回</a>
