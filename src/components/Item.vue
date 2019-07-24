@@ -36,7 +36,7 @@ export default {
     update() {
       this.$store.dispatch("updateItem", {
         id: this.item.id,
-        content: this.content == "" ? this.item.content : this.content,
+        content: this.content === "" ? this.item.content : this.content,
         isCompleted: this.item.isCompleted
       });
     },
