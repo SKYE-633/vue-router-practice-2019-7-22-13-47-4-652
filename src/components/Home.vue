@@ -4,7 +4,7 @@
       姓名：Skye
       <ol>
         <li>
-          <a href="/" onclick="return confirm('确认返回吗')">返回</a>
+          <a-button @click="showConfirm">Confirm</a-button>
         </li>
         <li>
           <router-link to="/TodoList">TodoList列表</router-link>
@@ -23,10 +23,24 @@
 <script>
 import TodoList from "./TodoList";
 export default {
-  name: "Main",
+  name: "Home",
   components: {
     TodoList
   },
+  methods: {
+    showConfirm() {
+      this.$confirm({
+        title: 'Do you confirm?',
+        content: 'Some descriptions',
+        onOk() {
+          console.log('OK');
+        },
+        onCancel() {
+          console.log('Cancel');
+        },
+        class: 'test',
+      });
+    },
   computed: {
     getLoginUser: function() {
       return this.$store.state.name;

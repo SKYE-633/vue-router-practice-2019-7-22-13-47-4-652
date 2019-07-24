@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     items() {
-      return this.$store.getters.getItems;
+      return this.$store.state.toDisplayItems;
     }
   }
 };

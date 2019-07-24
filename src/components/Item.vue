@@ -1,12 +1,12 @@
 <template>
   <div>
     <div v-if="!updateItemFlag">
-      <input name="todo-list" type="checkbox" v-model="item.isCompleted" @change="updateCompleted" />
+      <a-input placeholder="input" name="todo-list" type="checkbox" v-model="item.isCompleted" @change="updateCompleted" />
       <span v-bind:class="{checked:item.isCompleted}" @dblclick="resetFlag">{{item.content}}</span>
-      <button style="float:right;" @click="deleteItem">x</button>
+      <a-button type="danger" style="float:right;" @click="deleteItem">x</a-button>
     </div>
     <div v-else>
-      <input type="text" @change="updateItem()" v-model="content" />
+      <a-input placeholder="input" type="text" @change="updateItem()" v-model="content" />
     </div>
   </div>
 </template>
@@ -36,7 +36,7 @@ export default {
     update() {
       this.$store.dispatch("updateItem", {
         id: this.item.id,
-        content: this.content === "" ? this.item.content : this.content,
+        content: this.content == "" ? this.item.content : this.content,
         isCompleted: this.item.isCompleted
       });
     },
